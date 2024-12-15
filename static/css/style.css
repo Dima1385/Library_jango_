@@ -1,0 +1,137 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9eff1;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #004080;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #00274d;
+}
+
+
+a.button {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #004080, #00274d);
+    color: #fff;
+    border-radius: 25px;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.home-page,
+.books-page {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+
+.login-page,
+.register-page {
+    max-width: 400px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 30px 35px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus {
+    border-color: #004080;
+    outline: none;
+}
+
+
+form button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #004080, #00274d);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+form button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.books-page p {
+    font-size: 16px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+}
+
+
+@media (max-width: 768px) {
+    nav a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .login-page,
+    .register-page {
+        padding: 20px 25px;
+    }
+}
