@@ -135,3 +135,50 @@ form button:hover {
         padding: 20px 25px;
     }
 }
+
+
+.authors-page {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.authors-page h1 {
+    margin-bottom: 20px;
+}
+
+.authors-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+}
+
+.authors-page ul li {
+    background: #ffffff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.authors-page ul li strong {
+    font-size: 18px;
+    color: #004080;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.authors-page ul ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.authors-page ul ul li {
+    background: none;
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
