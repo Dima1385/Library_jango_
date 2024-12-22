@@ -1,149 +1,102 @@
+/* Загальні стилі */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e9eff1;
-    color: #333;
+    background-color: #f4f4f9; /* Легкий світло-сірий фон */
+    color: #333; /* Темний текст */
     line-height: 1.6;
 }
-
 
 h1 {
     text-align: center;
     margin: 20px 0;
     color: #333;
+    font-size: 2rem;
+    text-transform: uppercase; /* Стильне перетворення тексту */
 }
 
-
+/* Стиль для навігації */
 nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin: 20px 0;
+    background-color: #003366; /* Теплий темно-синій */
+    padding: 10px 0;
+    border-radius: 8px;
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
     background-color: #004080;
-    padding: 12px 20px;
+    padding: 12px 25px;
     border-radius: 25px;
-    font-size: 15px;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #00274d;
+    background-color: #00274d; /* Темніший відтінок синього */
+    transform: translateY(-3px);
 }
 
-
+/* Кнопка назад на головну */
 a.button {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 12px 25px;
     text-decoration: none;
     background: linear-gradient(135deg, #004080, #00274d);
     color: #fff;
-    border-radius: 25px;
-    font-size: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 a.button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-
-.home-page,
-.books-page {
+/* Стиль для головної сторінки */
+.home-page {
     text-align: center;
     padding: 30px 20px;
-}
-
-
-.login-page,
-.register-page {
-    max-width: 400px;
-    margin: 30px auto;
-    background: #ffffff;
-    padding: 30px 35px;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-form label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.2s ease;
-}
-
-form input:focus {
-    border-color: #004080;
-    outline: none;
-}
-
-
-form button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background: linear-gradient(135deg, #004080, #00274d);
-    border: none;
-    border-radius: 10px;
+    background: url('/static/images/library-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-    transition: box-shadow 0.2s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-form button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.home-page h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
 }
 
-
-.books-page p {
-    font-size: 16px;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 20px;
+.home-page p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
     line-height: 1.8;
 }
 
-
-@media (max-width: 768px) {
-    nav a {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
-
-    .login-page,
-    .register-page {
-        padding: 20px 25px;
-    }
-}
-
-
+/* Стилі для сторінки авторів */
 .authors-page {
     text-align: center;
     padding: 30px 20px;
+    background-color: #fff;
 }
 
 .authors-page h1 {
     margin-bottom: 20px;
+    font-size: 2rem;
+    color: #004080;
 }
 
 .authors-page ul {
@@ -160,11 +113,16 @@ form button:hover {
     padding: 20px;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.authors-page ul li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .authors-page ul li strong {
     font-size: 18px;
-    color: #004080;
+    color: #003366;
     display: block;
     margin-bottom: 10px;
 }
@@ -182,3 +140,100 @@ form button:hover {
     font-size: 14px;
     line-height: 1.6;
 }
+
+/* Стилі для сторінки книг */
+.books-page {
+    padding: 30px 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    text-align: center;
+}
+
+.books-page h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #004080;
+}
+
+.books-page p {
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Стилі для форм */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #004080;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #004080;
+    outline: none;
+}
+
+form button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #004080, #00274d);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Медіа запити для мобільних пристроїв */
+@media (max-width: 768px) {
+    .home-page h1 {
+        font-size: 2.5rem;
+    }
+
+    .books-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .authors-page h1 {
+        font-size: 1.8rem;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    form input, form button {
+        font-size: 14px;
+    }
+}
+

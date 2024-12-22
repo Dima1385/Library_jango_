@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ author.name }}</title>
+</head>
+<body>
+    <h1>{{ author.name }}</h1>
+    <p>{{ author.bio }}</p>
+    <h3>Books:</h3>
+    <ul>
+        {% for book in author.books %}
+            <li>{{ book }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'authors' %}">Back to Authors</a>
+</body>
+</html>

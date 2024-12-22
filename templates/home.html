@@ -7,17 +7,19 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="home">
-
-<div class="home-page">
-    <h1>Welcome to the Library</h1>
-    <nav>
-        <a href="{% url 'books' %}">View All Books</a>
-        <a href="{% url 'authors' %}">View All Authors</a>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
-    </nav>
-</div>
-
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="{% url 'books' %}">Books</a>
+            <a href="{% url 'authors' %}">Authors</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a>
+        </nav>
+    </header>
+    <main>
+        <div class="home-page">
+            <h1>Welcome to the Library</h1>
+        </div>
+    </main>
 </body>
 </html>
