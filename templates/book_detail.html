@@ -10,11 +10,15 @@
 <body>
     <div class="book-detail-page">
         <h1>{{ book.title }}</h1>
-        <img src="{% static 'images/default_book_image.jpg' %}" alt="{{ book.title }}" style="width: 300px; height: auto;">
-        <p><strong>Genre:</strong> N/A</p>
-        <p><strong>Publication Date:</strong> N/A</p>
-        <p><strong>Pages:</strong> N/A</p>
-        <p><strong>Author:</strong> <a href="{% url 'author_detail' book.author_id %}">{{ book.author }}</a></p>
+        <img src="{% static book.image %}" alt="{{ book.title }}" style="width: 300px; height: auto;">
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Author:</strong>
+            {% if book.author_id %}
+                <a href="{% url 'author_detail' book.author_id %}">{{ book.author }}</a>
+            {% else %}
+                {{ book.author }}
+            {% endif %}
+        </p>
         <a href="{% url 'books' %}">Back to Books</a>
     </div>
 </body>

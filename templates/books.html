@@ -7,11 +7,18 @@
     <title>Books</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body >
+<body>
     <div class="books-page">
-    <h1>All Books</h1>
-    <p>List of books will be here...</p>
-    <a href="{% url 'home' %}">Back to Home</a>
-</div>
+        <h1>All Books</h1>
+        <ul>
+            {% for book in books %}
+                <li>
+                    <img src="{% static book.image %}" alt="{{ book.title }}" style="width: 100px; height: auto;">
+                    <strong><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></strong>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
 </body>
 </html>

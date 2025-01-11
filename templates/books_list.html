@@ -13,7 +13,7 @@
         <ul>
             {% for book in books %}
                 <li>
-                    <img src="{% static 'images/default_book_image.jpg' %}" alt="{{ book.title }}" style="width: 100px; height: auto;">
+                    <img src="{% static book.image %}" alt="{{ book.title }}" style="width: 100px; height: auto;">
                     <strong><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></strong>
                 </li>
             {% endfor %}

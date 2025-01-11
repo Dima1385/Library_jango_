@@ -6,10 +6,29 @@ from .models import Author
 
 
 books_db = [
-    {"id": 1, "title": "Harry Potter", "author": "J.K. Rowling", "description": "A book about a young wizard."},
-    {"id": 2, "title": "Game of Thrones", "author": "George R.R. Martin", "description": "A series about the battle for the Iron Throne."},
-    {"id": 3, "title": "The Lord of the Rings", "author": "J.R.R. Tolkien", "description": "A series about the journey to destroy a powerful ring."}
+    {
+        "id": 1,
+        "title": "Harry Potter",
+        "author": "J.K. Rowling",
+        "description": "A book about a young wizard.",
+        "image": "images/harry_potter.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Game of Thrones",
+        "author": "George R.R. Martin",
+        "description": "A series about the battle for the Iron Throne.",
+        "image": "images/game_of_thrones.jpg"
+    },
+    {
+        "id": 3,
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "description": "A series about the journey to destroy a powerful ring.",
+        "image": "images/lord_of_the_rings.jpg"
+    }
 ]
+
 
 authors_db = [
     {"id": 1, "name": "J.K. Rowling", "bio": "J.K. Rowling is a British author, best known for writing the Harry Potter series.", "books": ["Harry Potter"]},
@@ -34,7 +53,11 @@ def authors(request):
 
 def book_detail(request, book_id):
     book = next((book for book in books_db if book["id"] == book_id), None)
+    if book:
+        author = next((a for a in authors_db if a["name"] == book["author"]), None)
+        book["author_id"] = author["id"] if author else None
     return render(request, 'book_detail.html', {'book': book})
+
 
 def author_detail(request, author_id):
     author = next((a for a in authors_db if a['id'] == author_id), None)
