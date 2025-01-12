@@ -12,14 +12,33 @@
         <nav class="main-nav">
             <a href="{% url 'books' %}">Books</a>
             <a href="{% url 'authors' %}">Authors</a>
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'register' %}">Register</a>
+            {% if user.is_authenticated %}
+                <span>Welcome, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
         </nav>
     </header>
+    
+
+    {% if messages %}
+        <div class="messages-container">
+            <ul>
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
     <main>
         <div class="home-page">
             <h1>Welcome to the Library</h1>
         </div>
     </main>
+
 </body>
 </html>
+

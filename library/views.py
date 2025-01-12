@@ -1,9 +1,8 @@
-
-from django.shortcuts import render
-from .models import Book
-from .models import Author
-
-
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 books_db = [
     {
@@ -36,6 +35,45 @@ authors_db = [
     {"id": 3, "name": "J.R.R. Tolkien", "bio": "J.R.R. Tolkien was an English writer and professor, best known for The Hobbit and The Lord of the Rings.", "books": ["The Lord of the Rings"]},
 ]
 
+
+# Реєстрація
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Реєстрація успішна! Ви можете увійти.')
+            return redirect('login')
+        else:
+            messages.error(request, 'Будь ласка, виправте помилки у формі.')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+
+# Вхід
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'You have successfully logged in!')
+            return redirect('home') 
+        else:
+            messages.error(request, 'Invalid username or password.')
+    
+    return render(request, 'login.html')
+
+# Вихід
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+
 def home(request):
     return render(request, 'home.html')
 
@@ -64,3 +102,14 @@ def author_detail(request, author_id):
     if author:
         return render(request, 'author_detail.html', {'author': author})
     return render(request, '404.html')
+
+
+
+# @login_required
+# def books(request):
+#     return render(request, 'books.html')
+
+# @login_required
+# def authors(request):
+#     return render(request, 'authors.html')
+

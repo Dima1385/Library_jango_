@@ -163,6 +163,21 @@ form button:hover {
     background-color: #3b3b3b; 
 }
 
+.messages {
+    list-style: none;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+.messages .success {
+    color: green;
+}
+.messages .error {
+    color: red;
+}
+
+
 /* Медіа запити для мобільних пристроїв */
 @media (max-width: 768px) {
     h1, h2 {

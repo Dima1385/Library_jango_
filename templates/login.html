@@ -10,14 +10,17 @@
 <body >
     <div class="login-page">
         <h1>Login</h1>
-        <form>
+        <form method="POST">
+            {% csrf_token %}
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
         </form>
-        <a href="{% url 'home' %}">Back to Home</a>
+        <a href="{% url 'register' %}">Sign in </a>
+        <a href="{% url 'home' %}">Back to home</a>
+        
     </div>
 </body>
 </html>
